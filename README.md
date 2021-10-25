@@ -1,6 +1,6 @@
 # vue后台管理模板 By Jackie 20211025
 
-# 插件
+# 基础插件
 ```
 - npm i amfe-flexible 设置基础值
 
@@ -18,6 +18,11 @@
 
 - npm i js-cookie
 
+```
+
+# 开发插件
+```
+- npm i element-ui -S
 ```
 
 ## Project setup

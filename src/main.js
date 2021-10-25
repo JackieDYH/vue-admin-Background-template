@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2021-10-25 14:41:24
+ * @LastEditTime: 2021-10-25 15:31:31
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -14,6 +14,11 @@ import * as filter from '@/filter/filter'; // 过滤器
 import * as utils from '@/utils/util'; // 公共方法
 import getRequest from '@/common/api';
 import axios from 'axios';
+
+// UI库
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 // 设置基准值 10vw
 import 'amfe-flexible';
