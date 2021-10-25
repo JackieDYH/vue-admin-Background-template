@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2021-10-25 15:10:55
+ * @LastEditTime: 2021-10-25 15:41:43
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -18,6 +18,12 @@ VueRouter.prototype.push = function push(location) {
 }
 
 const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    meta: { title: '登录' },
+    component: () => import(`@/views/Login.vue`),
+  },
   {
     path: "/",
     name: "Home",
