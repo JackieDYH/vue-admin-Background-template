@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2021-10-25 15:39:32
- * @LastEditTime: 2021-10-25 16:01:43
+ * @LastEditTime: 2021-10-25 16:55:38
  * @LastEditors: Jackie
  * @Description: 登录页面
  * @version: 
@@ -9,51 +9,31 @@
 <template>
   <div class="login-vue">
     <div class="container">
-      <p class="title">WELCOME</p>
+      <p class="title">后台管理系统</p>
       <div class="input-c">
-        <Input
-          prefix="ios-contact"
-          v-model="account"
-          placeholder="用户名"
-          clearable
-          @on-blur="verifyAccount"
-        />
+        <el-input placeholder="用户名" v-model="account" clearable> </el-input>
         <p class="error">{{ accountError }}</p>
       </div>
       <div class="input-c">
-        <Input
-          type="password"
-          v-model="pwd"
-          prefix="md-lock"
-          placeholder="密码"
-          clearable
-          @on-blur="verifyPwd"
-          @keyup.enter.native="submit"
-        />
+        <el-input placeholder="密码" v-model="pwd" show-password></el-input>
         <p class="error">{{ pwdError }}</p>
       </div>
-      <Button
-        :loading="isShowLoading"
-        class="submit"
-        type="primary"
-        @click="submit"
-        >登陆</Button
-      >
-      <p class="account">
+      <el-button class="submit" type="primary" @click="submit">登陆</el-button>
+      <!-- <p class="account">
         <span @click="register">注册账号</span> |
         <span @click="forgetPwd">忘记密码</span>
-      </p>
+      </p> -->
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "login",
+  name: "Login",
   data() {
     return {
-      account: "admin",
-      pwd: "admin",
+      account: "",
+      pwd: "",
       accountError: "",
       pwdError: "",
       isShowLoading: false,
@@ -86,26 +66,26 @@ export default {
     register() {},
     forgetPwd() {},
     submit() {
-      if (this.account === "admin" && this.pwd === "admin") {
-        this.isShowLoading = true;
-        // 登陆成功 设置用户信息
-        localStorage.setItem(
-          "userImg",
-          "https://avatars3.githubusercontent.com/u/22117876?s=460&v=4"
-        );
-        localStorage.setItem("userName", "小明");
-        // 登陆成功 假设这里是后台返回的 token
-        localStorage.setItem("token", "i_am_token");
-        this.$router.push({ path: this.redirect || "/" });
-      } else {
-        if (this.account !== "admin") {
-          this.accountError = "账号为admin";
-        }
-
-        if (this.pwd !== "admin") {
-          this.pwdError = "密码为admin";
-        }
-      }
+      this.$router.push({ name: "Index" });
+      // if (this.account === "admin" && this.pwd === "admin") {
+      //   this.isShowLoading = true;
+      //   // 登陆成功 设置用户信息
+      //   localStorage.setItem(
+      //     "userImg",
+      //     "https://avatars3.githubusercontent.com/u/22117876?s=460&v=4"
+      //   );
+      //   localStorage.setItem("userName", "小明");
+      //   // 登陆成功 假设这里是后台返回的 token
+      //   localStorage.setItem("token", "i_am_token");
+      //   this.$router.push({ path: this.redirect || "/" });
+      // } else {
+      //   if (this.account !== "admin") {
+      //     this.accountError = "账号为admin";
+      //   }
+      //   if (this.pwd !== "admin") {
+      //     this.pwdError = "密码为admin";
+      //   }
+      // }
     },
   },
 };
@@ -119,65 +99,43 @@ export default {
   align-items: center;
   color: #fff;
   background-image: url("~@/assets/images/bg01.jpg");
-}
-.login-vue .container {
-  background: rgba(255, 255, 255, 0.5);
-  width: 360px;
-  text-align: center;
-  border-radius: 10px;
-  padding: 40px;
-}
-.login-vue .ivu-input {
-  background-color: transparent;
-  color: #fff;
-  outline: #fff;
-  border-color: #fff;
-}
-.login-vue ::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: rgba(255, 255, 255, 0.8);
-}
-.login-vue :-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: rgba(255, 255, 255, 0.8);
-}
-.login-vue ::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: rgba(255, 255, 255, 0.8);
-}
-.login-vue :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: rgba(255, 255, 255, 0.8);
-}
-.login-vue .title {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-.login-vue .input-c {
-  margin: auto;
-  width: 200px;
-}
-.login-vue .error {
-  color: red;
-  text-align: left;
-  margin: 5px auto;
-  font-size: 12px;
-  padding-left: 30px;
-  height: 20px;
-}
-.login-vue .submit {
-  width: 200px;
-}
-.login-vue .account {
-  margin-top: 30px;
-}
-.login-vue .account span {
-  cursor: pointer;
-}
-.login-vue .ivu-icon {
-  color: #eee;
-}
-.login-vue .ivu-icon-ios-close-circle {
-  color: #777;
+
+  .container {
+    background: rgba(255, 255, 255, 0.5);
+    width: 360px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 40px;
+  }
+  .title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .input-c {
+    margin: auto;
+    width: 280px;
+  }
+  .error {
+    color: red;
+    text-align: left;
+    margin: 5px auto;
+    font-size: 12px;
+    height: 20px;
+  }
+  .submit {
+    width: 200px;
+  }
+  .account {
+    margin-top: 30px;
+    span {
+      cursor: pointer;
+    }
+  }
+  .ivu-icon {
+    color: #eee;
+  }
+  .ivu-icon-ios-close-circle {
+    color: #777;
+  }
 }
 </style>

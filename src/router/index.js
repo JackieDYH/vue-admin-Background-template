@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2021-10-25 15:41:43
+ * @LastEditTime: 2021-10-25 18:32:37
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -20,32 +20,64 @@ VueRouter.prototype.push = function push(location) {
 const routes = [
   {
     path: '/login',
-    name: 'login',
-    meta: { title: '登录' },
+    name: 'Login',
+    hidden: true, // 菜单是否隐藏 true隐藏
+    iconCls: 'el-icon-message', // 图标样式class
+    meta: { title: '登录', keepAlive: false, },
     component: () => import(`@/views/Login.vue`),
   },
   {
     path: "/",
-    name: "Home",
+    name: "Index",
+    hidden: false,
+    // leaf: false, // 只有一个节点
     meta: {
-      title: $t("Common.test"),
-      path: "/Home",
+      title: "管理系统",
+      path: "/",
       keepAlive: false,
     },
-    component: () => import(`@/views/Home.vue`),
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: () => import(`@/views/Index.vue`),
+    children: [
+      {
+        path: 'home',
+        name: "Home",
+        hidden: false,
+        iconCls: 'el-icon-s-home',
+        meta: {
+          title: "主页",
+          path: "/home",
+          keepAlive: false,
+        },
+        component: () => import(`@/views/Home.vue`),
+      },
+      {
+        path: 'text',
+        name: "Text",
+        hidden: false,
+        iconCls: 'el-icon-s-home',
+        meta: {
+          title: "测试",
+          path: "/text",
+          keepAlive: false,
+        },
+        component: () => import(`@/views/Text.vue`),
+      },
+      {
+        path: '',
+        meta: {
+          title: "",
+          path: "",
+          keepAlive: false,
+        },
+        redirect: '/home',
+        hidden: true,
+      }
+    ]
   },
   {
     path: '*',
-    redirect: '/'
+    redirect: '/',
+    hidden: true,
   }
 ];
 

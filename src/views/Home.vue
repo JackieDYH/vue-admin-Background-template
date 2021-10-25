@@ -1,25 +1,22 @@
 <!--
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2021-10-25 15:48:25
+ * @LastEditTime: 2021-10-25 17:04:33
  * @LastEditors: Jackie
- * @Description: file content
+ * @Description: 后台管理-主页
  * @version: 
 -->
 <template>
-  <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <div class="home"><span>主页</span></div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
-  },
+  components: {},
 };
 </script>
+<style lang="scss" scoped>
+.home {
+}
+</style>
