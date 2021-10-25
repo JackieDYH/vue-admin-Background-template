@@ -1,0 +1,78 @@
+// 过渡样式
+
+.transition-all {
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+/* 方式一 */
+.popup3-enter-active {
+    animation: slide-down 0.5s linear;
+}
+
+.popup3-leave-active {
+    animation: slide-down 0.5s linear reverse;
+}
+
+@keyframes show {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        transform: scale(1, 0);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+/* 方式二 */
+/* 进入的起点、离开的终点 */
+.popup2-enter,
+.popup2-leave-to {
+    transform: translateX(-100%);
+}
+
+.popup2-enter-active,
+.popup2-leave-active {
+    transition: 1s linear;
+}
+
+/* 进入的终点、离开的起点 */
+.popup2-enter-to,
+.popup2-leave {
+    transform: translateX(0px);
+}
+
+/* 方式三 */
+/* 设置持续时间和动画函数 */
+.popup-enter-active,
+.popup-leave-active {
+    transition: opacity 0.1s linear;
+}
+
+.popup-enter,
+.popup-leave-to {
+    opacity: 0;
+}
+
+/* 路由出口过渡 */
+.fade-enter-active,
+.fade-leave-active {
+    /* opacity 透明度 */
+    transition: opacity 0.28s ease;
+}
+
+/* .fade-leave-active, 2.1.8 版本以下 */
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
