@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2021-10-25 16:49:20
- * @LastEditTime: 2021-10-25 18:31:14
+ * @LastEditTime: 2021-10-26 12:47:11
  * @LastEditors: Jackie
  * @Description: 侧边导航
  * @version: 
@@ -11,12 +11,15 @@
     <div class="logo">
       <h1>集集管理系统</h1>
     </div>
+    <!-- @select="handleselect" -->
     <el-menu
-      default-active="$route.path"
+      :default-active="$route.path"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="#545c64"
+      router
+      unique-opened
+      background-color="#545C64"
       text-color="#fff"
       active-text-color="#ffd04b"
     >
@@ -24,7 +27,7 @@
         <div v-if="!item.hidden" :key="index">
           <el-submenu :index="index + ''" v-if="!item.leaf">
             <template slot="title">
-              <i class="iconfont" :class="item.iconCls"></i>
+              <i :class="item.iconCls"></i>
               {{ item.meta.title }}
             </template>
             <el-menu-item
@@ -33,7 +36,7 @@
               :key="child.path"
               v-show="!child.hidden"
             >
-              <i class="iconfont" :class="child.iconCls"></i>
+              <i :class="child.iconCls"></i>
               {{ child.meta.title }}
             </el-menu-item>
           </el-submenu>
@@ -41,8 +44,10 @@
             v-if="item.leaf && item.children.length > 0"
             :index="item.children[0].path"
           >
-            <i :class="item.iconCls"></i>
-            {{ $t(item.children[0].name) }}
+            <template slot="title">
+              <i :class="item.iconCls"></i>
+              {{ item.children[0].meta.title }}
+            </template>
           </el-menu-item>
         </div>
       </template>
@@ -65,6 +70,9 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    },
   },
   destroyed() {},
 };
@@ -82,6 +90,7 @@ export default {
   }
   .el-menu {
     width: 100%;
+    height: 100%;
   }
 }
 </style>

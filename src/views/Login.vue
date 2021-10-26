@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2021-10-25 15:39:32
- * @LastEditTime: 2021-10-25 16:55:38
+ * @LastEditTime: 2021-10-26 12:48:59
  * @LastEditors: Jackie
  * @Description: 登录页面
  * @version: 
@@ -66,7 +66,8 @@ export default {
     register() {},
     forgetPwd() {},
     submit() {
-      this.$router.push({ name: "Index" });
+      // this.$router.push({ name: "Index" });
+      this.$router.push({ path: "/home" });
       // if (this.account === "admin" && this.pwd === "admin") {
       //   this.isShowLoading = true;
       //   // 登陆成功 设置用户信息

@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2021-10-25 18:32:37
+ * @LastEditTime: 2021-10-26 12:40:27
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -30,19 +30,20 @@ const routes = [
     path: "/",
     name: "Index",
     hidden: false,
-    // leaf: false, // 只有一个节点
+    leaf: true, // 只有一个节点
+    iconCls: 'el-icon-s-home',
     meta: {
-      title: "管理系统",
+      title: "管理",
       path: "/",
       keepAlive: false,
     },
     component: () => import(`@/views/Index.vue`),
     children: [
       {
-        path: 'home',
+        path: '/home',
         name: "Home",
         hidden: false,
-        iconCls: 'el-icon-s-home',
+        iconCls: '',
         meta: {
           title: "主页",
           path: "/home",
@@ -50,34 +51,61 @@ const routes = [
         },
         component: () => import(`@/views/Home.vue`),
       },
+      // {
+      //   path: '',
+      //   hidden: true,
+      //   meta: {
+      //     title: "",
+      //     path: "",
+      //     keepAlive: false,
+      //   },
+      //   redirect: '/home',
+      // }
+    ]
+  },
+  {
+    path: "/",
+    name: "Index2",
+    hidden: false,
+    leaf: false, // 只有一个节点
+    iconCls: 'el-icon-s-tools',
+    meta: {
+      title: "数据",
+      path: "/",
+      keepAlive: false,
+    },
+    component: () => import(`@/views/Index.vue`),
+    children: [
       {
-        path: 'text',
-        name: "Text",
+        path: '/article',
+        name: "Article",
         hidden: false,
-        iconCls: 'el-icon-s-home',
+        iconCls: '',
         meta: {
-          title: "测试",
-          path: "/text",
+          title: "评价管理",
+          path: "/article",
           keepAlive: false,
         },
-        component: () => import(`@/views/Text.vue`),
+        component: () => import(`@/views/Article.vue`),
       },
       {
-        path: '',
+        path: '/comment',
+        name: "Comment",
+        hidden: false,
+        iconCls: '',
         meta: {
-          title: "",
-          path: "",
+          title: "数据管理",
+          path: "/comment",
           keepAlive: false,
         },
-        redirect: '/home',
-        hidden: true,
-      }
+        component: () => import(`@/views/Comment.vue`),
+      },
     ]
   },
   {
     path: '*',
-    redirect: '/',
     hidden: true,
+    redirect: '/',
   }
 ];
 

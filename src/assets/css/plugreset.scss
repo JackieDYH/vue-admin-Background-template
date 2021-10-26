@@ -1,5 +1,57 @@
 // 组件库样式 修改
 
+/*==============================菜单色调配置==============================*/
+.el-menu {
+    color: #fff !important;
+    background-color: #545C64 !important;
+
+    .el-menu-item {
+        color: #fff;
+
+        &:hover {
+            // color: #eec154;
+            color: #eec999;
+            background-color: rgba(0, 0, 0, .1);
+
+            i {
+                color: #eec999;
+                transition: border-color .3s, background-color .3s, color .3s;
+            }
+        }
+
+        i {
+            color: #fff;
+            font-size: 18px;
+            margin-right: 8px;
+        }
+    }
+
+    .el-submenu__title {
+        color: #fff;
+    }
+
+    .el-submenu__title i {
+        color: #fff !important;
+    }
+
+    .el-submenu__title:hover {
+        color: #fff !important;
+        background-color: transparent !important;
+    }
+
+    .el-submenu .is-active {
+        color: #eec999 !important;
+        background-color: rgba(0, 0, 0, .3) !important;
+    }
+}
+
+/*==============================菜单色调配置end==============================*/
+
+
+
+
+
+
 // tips 样式
 // .van-popup .van-popover__arrow {
 //     border-width: 2px;
