@@ -28,10 +28,13 @@
 
     .el-submenu__title {
         color: #fff;
+
     }
 
     .el-submenu__title i {
         color: #fff !important;
+        margin-right: 8px;
+        font-size: 18px;
     }
 
     .el-submenu__title:hover {
@@ -43,6 +46,16 @@
         color: #eec999 !important;
         background-color: rgba(0, 0, 0, .3) !important;
     }
+}
+
+.el-submenu [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+.el-menu-item [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
 }
 
 /*==============================菜单色调配置end==============================*/
