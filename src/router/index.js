@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2021-10-26 14:26:31
+ * @LastEditTime: 2021-10-26 14:51:16
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -28,7 +28,7 @@ const routes = [
   },
   {
     path: "/",
-    name: "Index",
+    // name: "Index",
     hidden: false,
     leaf: true, // 只有一个节点
     iconCls: 'el-icon-s-home',
@@ -51,23 +51,23 @@ const routes = [
         },
         component: () => import(`@/views/Home.vue`),
       },
-      // {
-      //   path: '',
-      //   hidden: true,
-      //   meta: {
-      //     title: "",
-      //     path: "",
-      //     keepAlive: false,
-      //   },
-      //   redirect: '/home',
-      // }
+      {
+        path: '',
+        hidden: true,
+        meta: {
+          title: "",
+          path: "",
+          keepAlive: false,
+        },
+        redirect: '/home',
+      }
     ]
   },
   {
     path: "/",
-    name: "Index2",
+    // name: "Index",
     hidden: false,
-    leaf: false, // 只有一个节点
+    leaf: false,
     iconCls: 'el-icon-s-tools',
     meta: {
       title: "数据",
