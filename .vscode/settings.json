@@ -1,0 +1,15 @@
+{
+    "vue-i18n.i18nPaths": "src\\common\\lang",
+    "i18n-ally.localesPaths": [
+        "src/common/lang"
+    ],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.namespace": true,
+    "i18n-ally.enabledParsers": [
+        "json",
+        "js"
+    ],
+    "i18n-ally.sortKeys": true,
+    "i18n-ally.sourceLanguage": "cn",
+    "i18n-ally.displayLanguage": "cn",
+}
