@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2021-10-25 16:49:20
- * @LastEditTime: 2021-10-26 12:47:11
+ * @LastEditTime: 2021-10-26 14:07:04
  * @LastEditors: Jackie
  * @Description: 侧边导航
  * @version: 
@@ -9,7 +9,7 @@
 <template>
   <div class="side">
     <div class="logo">
-      <h1>集集管理系统</h1>
+      <h1>后台管理系统</h1>
     </div>
     <!-- @select="handleselect" -->
     <el-menu
@@ -87,6 +87,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #333;
   }
   .el-menu {
     width: 100%;
