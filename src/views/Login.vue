@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2021-10-25 15:39:32
- * @LastEditTime: 2021-10-26 12:48:59
+ * @LastEditTime: 2022-01-24 18:59:02
  * @LastEditors: Jackie
  * @Description: 登录页面
  * @version: 
@@ -28,8 +28,11 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import tipsmixin from "@/common/mixins/tipsmixin";
 export default {
   name: "Login",
+  mixins: [tipsmixin],
   data() {
     return {
       account: "",
@@ -49,25 +52,28 @@ export default {
     },
   },
   methods: {
-    verifyAccount() {
-      if (this.account !== "admin") {
-        this.accountError = "账号为admin";
-      } else {
-        this.accountError = "";
-      }
-    },
-    verifyPwd() {
-      if (this.pwd !== "admin") {
-        this.pwdError = "密码为admin";
-      } else {
-        this.pwdError = "";
-      }
-    },
+    // verifyAccount() {
+    //   if (this.account !== "admin") {
+    //     this.accountError = "账号为admin";
+    //   } else {
+    //     this.accountError = "";
+    //   }
+    // },
+    // verifyPwd() {
+    //   if (this.pwd !== "admin") {
+    //     this.pwdError = "密码为admin";
+    //   } else {
+    //     this.pwdError = "";
+    //   }
+    // },
     register() {},
     forgetPwd() {},
     submit() {
       // this.$router.push({ name: "Index" });
-      this.$router.push({ path: "/home" });
+      // this.$router.push({ path: "/home" });
+      if (this.account !== "" && this.pwd !== "") {
+        this.login(this.account, this.pwd);
+      }
       // if (this.account === "admin" && this.pwd === "admin") {
       //   this.isShowLoading = true;
       //   // 登陆成功 设置用户信息

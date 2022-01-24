@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-07-20 18:19:57
- * @LastEditTime: 2021-10-25 15:01:46
+ * @LastEditTime: 2022-01-24 18:55:47
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -9,27 +9,32 @@
 // 在http.js中引入axios
 import axios from 'axios'; // 引入axios
 import QS from 'qs'; // 引入qs模块，用来序列化post类型的数据，后面会提到
-// import { Toast } from "vant";
+import { Toast } from "vant";
+import { Message } from 'element-ui';
 import router from '@/router';
 import store from "@/store";
 import { $t } from "@/common/lang/i18n";
 
 // 方式一
-axios.defaults.timeout = 10000;
-axios.defaults.headers.post['Content-Type'] = 'application/json'; //"application/x-www-form-urlencoded;charset=UTF-8"
-axios.defaults.baseURL = process.env.VUE_APP_URL_API;
-// axios.defaults.baseURL = 'http://192.168.10.26:7001';
+// axios.defaults.timeout = 10000;
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+// axios.defaults.baseURL = process.env.VUE_APP_URL_API;
 
 // 方式二 创建axios实例
-// let Service = axios.create({
-//     baseURL = process.env.VUE_APP_URL_API,
-//     timeout = 10000
-// });
+const Service = axios.create({
+    baseURL: process.env.VUE_APP_URL_API || 'http://139.196.127.63:9090/mock/134',
+    timeout: 10000
+});
 
 // 请求拦截器
-// Service.interceptors.request.use
-axios.interceptors.request.use(
+// axios.interceptors.request.use(
+Service.interceptors.request.use(
     config => {
+        config.data = QS.stringify(config.data);
+        config.headers = {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
         let token = store.state.leCube.userInfo.token || localStorage.getItem("token");
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
@@ -40,29 +45,40 @@ axios.interceptors.request.use(
         return Promise.error(error);
     });
 // 响应拦截器
-axios.interceptors.response.use(
+Service.interceptors.response.use(
     response => {
         // 如果返回的状态码为200，说明接口请求成功，可以正常拿到数据
         // 否则的话抛出错误
         if (response.status === 200) {
             switch (response.data.errorCode) {
-                // case 404:
-                //     toastMessage({ message: response.data.msg, time: 3000 });
-                //     setTimeout(() => {
-                //         router.replace({
-                //             path: '/',
-                //             query: {
-                //                 redirect: router.currentRoute.fullPath
-                //             }
-                //         });
-                //     }, 2000);
-                //     break;
                 case 403:
+                    Message({
+                        message: `拒绝访问${response.data.msg}`,
+                        type: 'warning'
+                    })
                     // Toast({ message: $t("Common.common.invalid"), duration: 2000 });
                     break;
-                // case 500:
-                //     toastMessage({ message: response.data.msg, time: 3000 });
-                //     break;
+                case 404:
+                    Message({
+                        message: `请求错误${response.data.msg}`,
+                        type: 'warning'
+                    })
+                    //     toastMessage({ message: response.data.msg, time: 3000 });
+                    //     setTimeout(() => {
+                    //         router.replace({
+                    //             path: '/',
+                    //             query: {
+                    //                 redirect: router.currentRoute.fullPath
+                    //             }
+                    //         });
+                    //     }, 2000);
+                    break;
+                case 500:
+                    Message({
+                        message: `服务器错误${response.data.msg}`,
+                        type: 'warning'
+                    })
+                    break;
                 // case 503:
                 //     // 维护
                 //     router.replace({

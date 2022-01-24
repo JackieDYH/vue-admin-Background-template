@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2021-10-25 16:49:20
- * @LastEditTime: 2022-01-24 14:00:17
+ * @LastEditTime: 2022-01-24 19:03:59
  * @LastEditors: Jackie
  * @Description: 头部
  * @version: 
@@ -19,7 +19,7 @@
     <!-- 用户退出1 -->
     <el-dropdown>
       <span class="el-dropdown-link">
-        admin
+        {{ userInfo.name }}
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
@@ -57,36 +57,43 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import tipsmixin from "@/common/mixins/tipsmixin";
 export default {
   name: "HeaderBar",
+  mixins: [tipsmixin],
   data() {
     return {
       dialogVisible: false,
     };
   },
+  computed: {
+    ...mapGetters("leCube", ["userInfo", "isLogin"]),
+  },
   created() {},
   mounted() {},
   methods: {
-    async handleCommand(command) {
-      if (command == "pwd") {
-        alert("修改密码功能");
-      } else if (command == "signout") {
-        const res = { status: 1 };
-        // const res = await signout();
-        if (res.status == 1) {
-          this.$message({
-            type: "success",
-            message: "退出成功",
-          });
-          this.$router.push("/login");
-        } else {
-          this.$message({
-            type: "error",
-            message: res.message || "退出失败",
-          });
-        }
-      }
-    },
+    ...mapActions("leCube", ["userInfoSync", "isLoginSync"]),
+    // async handleCommand(command) {
+    //   if (command == "pwd") {
+    //     alert("修改密码功能");
+    //   } else if (command == "signout") {
+    //     const res = { status: 1 };
+    //     // const res = await signout();
+    //     if (res.status == 1) {
+    //       this.$message({
+    //         type: "success",
+    //         message: "退出成功",
+    //       });
+    //       this.$router.push("/login");
+    //     } else {
+    //       this.$message({
+    //         type: "error",
+    //         message: res.message || "退出失败",
+    //       });
+    //     }
+    //   }
+    // },
     handleClose(done) {
       this.$confirm("确认关闭？")
         .then((_) => {
@@ -96,7 +103,8 @@ export default {
     },
     logout() {
       this.dialogVisible = false;
-      this.$router.push({ name: "Login" });
+      this.outLogin();
+      // this.$router.push({ name: "Login" });
     },
   },
   destroyed() {},

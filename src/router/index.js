@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2022-01-24 14:13:10
+ * @LastEditTime: 2022-01-24 19:02:03
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -35,7 +35,8 @@ const routes = [
     meta: {
       title: "管理",
       path: "/",
-      keepAlive: false,
+      keepAlive: false,//是否需要缓存
+      requireAuth: true,//需要登录
     },
     component: () => import(`@/views/Index.vue`),
     children: [
@@ -73,6 +74,7 @@ const routes = [
       title: "数据",
       path: "/",
       keepAlive: false,
+      requireAuth: true,
     },
     component: () => import(`@/views/Index.vue`),
     children: [
@@ -154,6 +156,16 @@ router.beforeEach((to, from, next) => {
   // }else{
   //   next()  //这一行next必须写
   // }
+  if (to.matched.some(record => record.meta.requireAuth)) {
+    const token = store.state.leCube.userInfo.token || localStorage.getItem("token")
+    if (token) {
+      next()
+    } else {
+      next("/login")
+    }
+  } else {
+    next();
+  }
   /* 路由发生变化修改页面title */
   if (to.meta.title) {
     document.title = to.meta.title
