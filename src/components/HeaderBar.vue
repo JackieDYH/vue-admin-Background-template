@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2021-10-25 16:49:20
- * @LastEditTime: 2021-10-27 15:26:29
+ * @LastEditTime: 2022-01-24 14:00:17
  * @LastEditors: Jackie
  * @Description: 头部
  * @version: 
@@ -30,7 +30,7 @@
       </el-dropdown-menu>
     </el-dropdown>
     <!-- 用户退出1 -->
-    <el-dropdown @command="handleCommand" menu-align="start">
+    <!-- <el-dropdown @command="handleCommand" menu-align="start">
       <span class="el-dropdown-link">
         admin
         <i class="el-icon-arrow-down el-icon--right"></i>
@@ -39,7 +39,7 @@
         <el-dropdown-item command="pwd">修改密码</el-dropdown-item>
         <el-dropdown-item command="signout"> 退出登录 </el-dropdown-item>
       </el-dropdown-menu>
-    </el-dropdown>
+    </el-dropdown> -->
     <!-- 弹窗 -->
     <el-dialog
       title="提示"

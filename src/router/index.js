@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2022-01-21 17:07:06
+ * @LastEditTime: 2022-01-24 14:13:10
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -100,7 +100,17 @@ const routes = [
         },
         component: () => import(`@/views/Comment.vue`),
       },
-    ]
+      // {
+      //   path: '',
+      //   hidden: true,
+      //   meta: {
+      //     title: "",
+      //     path: "",
+      //     keepAlive: false,
+      //   },
+      //   redirect: '/article',
+      // }
+    ],
   },
   {
     path: '*',
