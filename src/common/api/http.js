@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-07-20 18:19:57
- * @LastEditTime: 2022-01-24 18:55:47
+ * @LastEditTime: 2022-01-25 16:17:30
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -23,7 +23,7 @@ import { $t } from "@/common/lang/i18n";
 
 // 方式二 创建axios实例
 const Service = axios.create({
-    baseURL: process.env.VUE_APP_URL_API || 'http://139.196.127.63:9090/mock/134',
+    // baseURL: process.env.VUE_APP_URL_API || 'http://139.196.127.63:9090/mock/134',
     timeout: 10000
 });
 
@@ -110,6 +110,7 @@ export function get(url, params) {
     // if (!params.token) {
     //     params.token = store.state.leCube.userInfo.token || localStorage.getItem("token");
     // }
+    url = store.state.defaultServer + url;
     params.language = localStorage.getItem("language") ? localStorage.getItem("language") : 'cn';
     return new Promise((resolve, reject) => {
         axios.get(url, { params })
@@ -130,6 +131,7 @@ export function post(url, params) {
     // if (!params.token) {
     //     params.token = store.state.leCube.userInfo.token || localStorage.getItem("token");
     // }
+    url = store.state.defaultServer + url;
     params.language = localStorage.getItem("language") ? localStorage.getItem("language") : 'cn';
     return new Promise((resolve, reject) => {
         // debugger

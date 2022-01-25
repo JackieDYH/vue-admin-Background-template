@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-07-19 15:42:25
- * @LastEditTime: 2021-10-12 14:59:20
+ * @LastEditTime: 2022-01-25 16:18:17
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -15,5 +15,7 @@ export default {
     langSync({ commit }, value) {
         commit("setlang", value);
     },
-
+    defaultServerSync({ commit }, value) {
+        commit("setdefaultServer", value);
+    },
 }
