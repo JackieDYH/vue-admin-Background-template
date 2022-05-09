@@ -1,6 +1,7 @@
-# vue后台管理模板 By Jackie 20211025
+# vue 后台管理模板 antdUI By Jackie 202205
 
 # 基础插件
+
 ```
 - npm i amfe-flexible 设置基础值
 
@@ -21,29 +22,35 @@
 ```
 
 # 开发插件
+
 ```
-- npm i element-ui -S
+- npm i ant-design-vue@1.7.2 -S
 ```
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 ### Lints and fixes files
+
 ```
 npm run lint
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
