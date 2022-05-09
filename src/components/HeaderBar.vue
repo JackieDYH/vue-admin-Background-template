@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:41:56
- * @LastEditTime: 2022-05-07 14:43:10
+ * @LastEditTime: 2022-05-09 13:47:01
  * @LastEditors: Jackie
  * @Description: HeaderBar
  * @FilePath: /vue-admin-template/src/components/HeaderBar.vue
@@ -32,12 +32,13 @@ export default {
 <style lang="scss" scoped>
 .HeaderBar {
   .logo {
-    font-size: 18px;
+    font-size: 20px;
     padding: 0 10px;
     font-weight: 700;
     color: #fff;
     display: flex;
     align-items: center;
+    font-weight: bold;
   }
 }
 </style>
