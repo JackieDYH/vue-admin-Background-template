@@ -1,10 +1,10 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:34:06
- * @LastEditTime: 2022-05-09 16:04:01
+ * @LastEditTime: 2022-05-09 17:26:27
  * @LastEditors: Jackie
  * @Description: 登录页 用户名-密码-验证码登录方式
- * @FilePath: /vue-admin-template/src/views/Login.vue
+ * @FilePath: /vue-admin-Background-template/src/views/Login/Login.vue
  * @version: 
 -->
 <template>
@@ -37,14 +37,16 @@
         </router-link> -->
       </a-form-model-item>
     </a-form-model>
+    <FooterCopyright />
   </div>
 </template>
 
 <script>
 import Identify from "@/components/Identify";
+import FooterCopyright from "@/components/FooterCopyright";
 export default {
   name: "Login",
-  components: { Identify },
+  components: { Identify, FooterCopyright },
   data() {
     let validateCode = (rule, value, callback) => {
       if (value === "") {

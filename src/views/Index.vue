@@ -1,10 +1,10 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:31:02
- * @LastEditTime: 2022-05-07 14:49:57
+ * @LastEditTime: 2022-05-09 17:31:20
  * @LastEditors: Jackie
  * @Description: file content
- * @FilePath: /vue-admin-template/src/views/Index.vue
+ * @FilePath: /vue-admin-Background-template/src/views/Index.vue
  * @version: 
 -->
 <template>
@@ -15,6 +15,7 @@
       <a-layout class="wrap">
         <a-layout-content class="box">
           <router-view />
+          <FooterCopyright />
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -23,10 +24,12 @@
 <script>
 import SideBar from "@/components/SideBar";
 import HeaderBar from "@/components/HeaderBar";
+import FooterCopyright from "@/components/FooterCopyright";
 export default {
   components: {
     SideBar,
     HeaderBar,
+    FooterCopyright,
   },
   data() {
     return {

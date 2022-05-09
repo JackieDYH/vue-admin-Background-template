@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2022-05-09 11:20:02
+ * @LastEditTime: 2022-05-09 18:00:30
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -27,7 +27,8 @@ const routes = [
       keepAlive: false
     },
     // redirect: '/',
-    component: () => import("../views/Login.vue"),
+    // component: () => import("../views/Login/LoginChain.vue"),
+    component: () => import("../views/Login/Login.vue"),
   },
   {
     path: "/",
@@ -102,6 +103,12 @@ const routes = [
     ]
   },
   {
+    path: "/404",
+    name: "NotFound",
+    meta: { hidden: true, keepAlive: false },
+    component: () => import("../views/404.vue"),
+  },
+  {
     path: "*",
     meta: { hidden: true, keepAlive: false },
     redirect: "/",
@@ -120,13 +127,13 @@ router.beforeEach((to, from, next) => {
   // 使用Vuex存储当前页面路由元信息
   // store.dispatch("routerMetaSync", JSON.parse(JSON.stringify(to.meta)));
   // 路由判断
-  // if(to.matched.some((item)=>{
+  // if (to.matched.some((item) => {
   //   console.log(item);
-  //   return item.meta.path
-  // })){
-  //     next("/login")
-  // }else{
-  //   next()  //这一行next必须写
+  //   return item.meta.path;
+  // })) {
+  //   next("/login");
+  // } else {
+  //   next();  //这一行next必须写
   // }
   // if (to.matched.some(record => record.meta.requireAuth)) {
   //   const token = store.state.leCube.userInfo.token || localStorage.getItem("token")
