@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:41:56
- * @LastEditTime: 2022-05-09 14:24:08
+ * @LastEditTime: 2022-05-09 16:04:05
  * @LastEditors: Jackie
  * @Description: HeaderBar
  * @FilePath: /vue-admin-template/src/components/HeaderBar.vue
@@ -9,7 +9,7 @@
 -->
 <template>
   <a-layout-header class="HeaderBar">
-    <div class="logo">MaaS管理平台</div>
+    <div class="logo">MaaS链资产管理平台</div>
     <!-- <a-menu
         theme="dark"
         mode="horizontal"
@@ -21,7 +21,7 @@
         <a-menu-item key="3"> nav 3 </a-menu-item>
       </a-menu> -->
     <div class="use">
-      <!-- :visible="true" 菜单是否显示  :trigger="['click']"-->
+      <!-- :visible="visible" 菜单是否显示  :trigger="['click']"-->
       <a-dropdown>
         <a class="ant-dropdown-link" @click="(e) => e.preventDefault()">
           admin <a-icon type="down" />
@@ -35,7 +35,7 @@
             <a-icon type="setting" />
             设置
           </a-menu-item> -->
-          <a-menu-item key="3">
+          <a-menu-item key="3" @click="showConfirm">
             <a-icon type="logout" />
             退出登录
           </a-menu-item>
@@ -54,9 +54,23 @@ export default {
     };
   },
   methods: {
-    visibleChange(visible) {
-      console.log(visible);
-      this.visible = visible;
+    showConfirm() {
+      let _this = this;
+      this.$confirm({
+        title: "是否要退出后台管理系统?",
+        // content: (h) => <div style="color:red;">Some descriptions</div>,
+        onOk() {
+          console.log("OK");
+          _this.goPath("/login");
+        },
+        onCancel() {
+          console.log("Cancel");
+        },
+        class: "test",
+      });
+    },
+    goPath(route) {
+      this.$router.push(route);
     },
   },
 };
