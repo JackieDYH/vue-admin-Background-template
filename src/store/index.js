@@ -1,11 +1,13 @@
 /*
  * @Author: Jackie
- * @Date: 2021-07-19 11:05:42
- * @LastEditTime: 2022-05-07 14:13:24
+ * @Date: 2022-05-09 17:12:59
+ * @LastEditTime: 2022-05-09 18:14:22
  * @LastEditors: Jackie
  * @Description: file content
+ * @FilePath: /vue-admin-Background-template/src/store/index.js
  * @version: 
  */
+
 import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from "vuex-persistedstate";

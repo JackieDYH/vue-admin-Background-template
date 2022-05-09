@@ -1,10 +1,10 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:41:56
- * @LastEditTime: 2022-05-09 16:04:05
+ * @LastEditTime: 2022-05-09 18:30:55
  * @LastEditors: Jackie
  * @Description: HeaderBar
- * @FilePath: /vue-admin-template/src/components/HeaderBar.vue
+ * @FilePath: /vue-admin-Background-template/src/components/HeaderBar.vue
  * @version: 
 -->
 <template>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "HeaderBar",
   data() {
@@ -54,6 +55,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["userInfoSync", "setisLoginSync"]),
     showConfirm() {
       let _this = this;
       this.$confirm({
@@ -61,6 +63,8 @@ export default {
         // content: (h) => <div style="color:red;">Some descriptions</div>,
         onOk() {
           console.log("OK");
+          _this.setisLoginSync(false);
+          _this.userInfoSync({});
           _this.goPath("/login");
         },
         onCancel() {

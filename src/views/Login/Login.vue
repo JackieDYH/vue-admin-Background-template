@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:34:06
- * @LastEditTime: 2022-05-09 17:26:27
+ * @LastEditTime: 2022-05-09 18:31:53
  * @LastEditors: Jackie
  * @Description: 登录页 用户名-密码-验证码登录方式
  * @FilePath: /vue-admin-Background-template/src/views/Login/Login.vue
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import Identify from "@/components/Identify";
 import FooterCopyright from "@/components/FooterCopyright";
 export default {
@@ -74,18 +75,31 @@ export default {
       },
     };
   },
+  computed: {
+    ...mapGetters(["userInfo", "isLogin"]),
+  },
   mounted() {
     // 初始
     this.identifyCode = "";
     this.makeCode(this.identifyCodes, 4);
   },
   methods: {
+    ...mapActions(["userInfoSync", "setisLoginSync"]),
     // 确认
     onSubmit() {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          this.$router.push("/home");
+          // 模拟登录
+          let { name, password, code } = this.form;
+          if (name == "admin" && password == "123456") {
+            this.userInfoSync({ name, password });
+            this.setisLoginSync(true);
+            this.$router.push("/home");
+          } else {
+            this.$message.error("请检查是否填写正确");
+          }
         } else {
+          this.$message.error("请检查是否填写正确");
           console.log("error submit!!");
           return false;
         }
