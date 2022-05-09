@@ -1,0 +1,49 @@
+{
+  "name": "vuedyh",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "serve:dev": "vue-cli-service serve --mode dev",
+    "serve:prod": "vue-cli-service serve --mode prod",
+    "serve:beta": "vue-cli-service serve --mode beta",
+    "build:dev": "vue-cli-service build --mode devbuild",
+    "build:prod": "vue-cli-service build --mode prodbuild",
+    "build:beta": "vue-cli-service build --mode betabuild"
+  },
+  "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "animate.css": "^4.1.1",
+    "ant-design-vue": "^1.7.2",
+    "axios": "^0.23.0",
+    "core-js": "^3.6.5",
+    "dayjs": "^1.10.7",
+    "js-cookie": "^3.0.1",
+    "qs": "^6.10.1",
+    "v-clipboard": "^2.2.3",
+    "vue": "^2.6.11",
+    "vue-i18n": "^8.26.5",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0",
+    "vuex-persistedstate": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.12.0",
+    "postcss-pxtorem": "^5.1.1",
+    "prettier": "^2.2.1",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}

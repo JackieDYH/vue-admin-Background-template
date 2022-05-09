@@ -1,0 +1,147 @@
+// 组件库样式 修改
+
+/*==============================菜单色调配置==============================*/
+.el-menu {
+    color: #fff !important;
+    background-color: #545C64 !important;
+
+    .el-menu-item {
+        color: #fff;
+
+        &:hover {
+            // color: #eec154;
+            color: #eec999;
+            background-color: rgba(0, 0, 0, .1);
+
+            i {
+                color: #eec999;
+                transition: border-color .3s, background-color .3s, color .3s;
+            }
+        }
+
+        i {
+            color: #fff;
+            font-size: 18px;
+            margin-right: 8px;
+        }
+    }
+
+    .el-submenu__title {
+        color: #fff;
+
+    }
+
+    .el-submenu__title i {
+        color: #fff !important;
+        margin-right: 8px;
+        font-size: 18px;
+    }
+
+    .el-submenu__title:hover {
+        color: #fff !important;
+        background-color: transparent !important;
+    }
+
+    .el-submenu .is-active {
+        color: #eec999 !important;
+        background-color: rgba(0, 0, 0, .3) !important;
+    }
+}
+
+.el-submenu [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+.el-menu-item [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+/*==============================菜单色调配置end==============================*/
+
+
+
+
+
+
+// tips 样式
+// .van-popup .van-popover__arrow {
+//     border-width: 2px;
+// }
+// .van-popup .van-popover__content{
+// 	max-width: 400px;
+// }
+.tipsbox {
+    padding: 10px;
+    white-space: pre;
+}
+
+.van-toast {
+    width: auto !important;
+}
+
+// toast 样式
+.van-toast__text {
+    font-size: 18px;
+    padding: 12px 16px;
+    // white-space: nowrap;
+}
+
+.van-popover__content {
+    border-radius: 0;
+}
+
+.van-toast--loading {
+    width: auto !important;
+    height: auto !important;
+}
+
+// 分页器
+.footer-pagination {
+    // width: 100%;
+    // display: flex;
+    // justify-content: flex-end;
+    // padding: 20px 0 0;
+
+    .van-pagination {
+        font-size: 6px;
+
+        /deep/.van-pagination__item {
+            max-width: 24px;
+            min-width: 24px;
+            height: 24px;
+            background: none;
+            margin: 0 4px;
+            font-family: Microsoft YaHei;
+            color: #627d93;
+        }
+
+        /deep/.van-pagination__item.van-pagination__prev,
+        /deep/.van-pagination__item.van-pagination__next {
+            background: none;
+            color: #2E516F;
+        }
+
+        /deep/.van-pagination__item--disabled,
+        /deep/.van-pagination__item--disabled:active {
+            cursor: pointer;
+            color: #e70027;
+        }
+
+        /deep/.van-pagination__item.van-pagination__item--active {
+            font-size: 12px;
+            font-family: Microsoft YaHei;
+            color: #ffffff;
+            background: #2E516F;
+        }
+
+        /deep/.van-pagination__item.van-pagination__item--active:hover {
+            background: #3e6485;
+        }
+
+        /deep/.van-pagination__item::after {
+            border: none;
+        }
+    }
+}
