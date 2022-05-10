@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:31:02
- * @LastEditTime: 2022-05-10 15:08:19
+ * @LastEditTime: 2022-05-10 15:11:29
  * @LastEditors: Jackie
  * @Description: file content
  * @FilePath: /vue-admin-Background-template/src/views/Index.vue
@@ -54,7 +54,7 @@ export default {
   height: 100%;
   .wrap {
     margin: 24px;
-    transition: all 2s;
+    transition: all 0.5s;
     .box {
       min-height: 100%;
       background-color: #fff;
