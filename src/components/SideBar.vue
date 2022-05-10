@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:42:39
- * @LastEditTime: 2022-05-10 18:05:37
+ * @LastEditTime: 2022-05-10 18:24:26
  * @LastEditors: Jackie
  * @Description: sider
  * @FilePath: /vue-admin-Background-template/src/components/SideBar.vue
@@ -177,6 +177,18 @@ export default {
   ::v-deep.ant-layout-sider-children {
     overflow-y: auto;
     overflow-x: hidden;
+  }
+  a {
+    /* font-size: 20px; */
+    display: inline-block;
+    /* font-weight: bold; */
+    color: #2c3e50;
+    &:hover {
+      color: #707b87;
+    }
+    &.router-link-exact-active {
+      color: #1890ff;
+    }
   }
 }
 </style>
