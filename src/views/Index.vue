@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:31:02
- * @LastEditTime: 2022-05-10 15:11:29
+ * @LastEditTime: 2022-05-10 18:06:30
  * @LastEditors: Jackie
  * @Description: file content
  * @FilePath: /vue-admin-Background-template/src/views/Index.vue
@@ -15,10 +15,10 @@
       <a-layout class="wrap" ref="wrapScroll">
         <a-layout-content class="box">
           <router-view />
-          <FooterCopyright />
         </a-layout-content>
       </a-layout>
     </a-layout>
+    <!-- <a-layout-footer class="footer"><FooterCopyright /></a-layout-footer> -->
   </a-layout>
 </template>
 <script>
@@ -65,6 +65,9 @@ export default {
       margin: 0;
       min-height: 400px;
     }
+  }
+  .footer {
+    background: #fff;
   }
 }
 </style>

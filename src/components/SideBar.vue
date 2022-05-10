@@ -1,10 +1,10 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:42:39
- * @LastEditTime: 2022-05-09 11:26:48
+ * @LastEditTime: 2022-05-10 18:05:37
  * @LastEditors: Jackie
  * @Description: sider
- * @FilePath: /vue-admin-template/src/components/SideBar.vue
+ * @FilePath: /vue-admin-Background-template/src/components/SideBar.vue
  * @version: 
 -->
 <template>
@@ -34,7 +34,8 @@
       <template v-for="item in $router.options.routes">
         <template v-if="!item.meta.hidden && item.children">
           <!-- 只有一个子菜单: 一级菜单 -->
-          <template v-if="item.children.length === 1">
+          <!-- <template v-if="item.children.length === 1"> -->
+          <template v-if="item.meta.leaf">
             <a-menu-item :key="item.children[0].path">
               <a-icon :type="item.meta && item.meta.icon" />
               <router-link

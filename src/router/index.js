@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2022-05-10 15:54:22
+ * @LastEditTime: 2022-05-10 18:03:08
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -37,7 +37,7 @@ const routes = [
       title: "管理页",
       keys: 'index',
       hidden: false,
-      leaf: false,//只有一个节点
+      leaf: true,//只有一个节点
       icon: "user", //菜单图标
       keepAlive: false,//是否需要缓存
       requireAuth: true,//需要登录
@@ -47,15 +47,15 @@ const routes = [
       {
         path: "/home",
         name: "Home",
-        meta: { title: "Home", keys: 'index', hidden: false, keepAlive: false },
+        meta: { title: "用户管理", keys: 'index', hidden: false, keepAlive: false },
         component: () => import("../views/Home.vue"),
       },
-      {
-        path: "/text1",
-        name: "Text1",
-        meta: { title: "Text1", keys: 'index', hidden: false, keepAlive: false },
-        component: () => import("../views/Text1.vue"),
-      },
+      // {
+      //   path: "/subject",
+      //   name: "Subject",
+      //   meta: { title: "题目管理", keys: 'index', hidden: false, keepAlive: false },
+      //   component: () => import("../views/Subject.vue"),
+      // },
       {
         path: "",
         meta: { hidden: true, keepAlive: false },
@@ -67,10 +67,32 @@ const routes = [
     path: "/",
     // name: "Index",
     meta: {
-      title: "数据",
-      keys: 'data',
+      title: "管理页",
+      keys: 'index2',
       hidden: false,
       leaf: true,
+      icon: "user",
+      keepAlive: false,
+      requireAuth: true,
+    },
+    component: () => import("../views/Index.vue"),
+    children: [
+      {
+        path: "/subject",
+        name: "Subject",
+        meta: { title: "题目管理", keys: 'index2', hidden: false, keepAlive: false },
+        component: () => import("../views/Subject.vue"),
+      },
+    ]
+  },
+  {
+    path: "/",
+    // name: "Index",
+    meta: {
+      title: "勋章",
+      keys: 'index3',
+      hidden: false,
+      leaf: false,
       icon: "usergroup-add",
       keepAlive: false,
       requireAuth: true,
@@ -78,28 +100,22 @@ const routes = [
     component: () => import("../views/Index.vue"),
     children: [
       {
-        path: "/text2",
-        name: "Text2",
-        meta: { title: "Text2", keys: 'data', hidden: false, keepAlive: false },
-        component: () => import("../views/Text2.vue"),
+        path: "/medal",
+        name: "Medal",
+        meta: { title: "勋章管理", keys: 'index3', hidden: false, keepAlive: false },
+        component: () => import("../views/Medal.vue"),
       },
       {
-        path: "/text3",
-        name: "Text3",
-        meta: { title: "Text3", keys: 'data', hidden: false, keepAlive: false },
-        component: () => import("../views/Text3.vue"),
+        path: "/text",
+        name: "Text",
+        meta: { title: "勋章管理", keys: 'index3', hidden: false, keepAlive: false },
+        component: () => import("../views/Text.vue"),
       },
-      {
-        path: "/text4",
-        name: "Text4",
-        meta: { title: "Text4", keys: 'data', hidden: true, keepAlive: false },
-        component: () => import("../views/Text4.vue"),
-      },
-      {
-        path: "",
-        meta: { hidden: true, keepAlive: false },
-        redirect: "/home",
-      },
+      // {
+      //   path: "",
+      //   meta: { hidden: true, keepAlive: false },
+      //   redirect: "/home",
+      // },
     ]
   },
   {

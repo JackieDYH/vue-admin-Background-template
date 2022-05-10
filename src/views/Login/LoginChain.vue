@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-09 17:16:51
- * @LastEditTime: 2022-05-10 16:39:46
+ * @LastEditTime: 2022-05-10 18:06:18
  * @LastEditors: Jackie
  * @Description: 链的方式登录
  * @FilePath: /vue-admin-Background-template/src/views/Login/LoginChain.vue
@@ -15,7 +15,7 @@
         Meta Mask登录
       </a-button>
     </div>
-    <FooterCopyright />
+    <FooterCopyright class="footer" />
     <Loading v-show="showLoading" />
   </div>
 </template>
@@ -80,6 +80,10 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .footer {
+    padding: 30px 0;
+  }
 
   .container {
     width: 550px;
