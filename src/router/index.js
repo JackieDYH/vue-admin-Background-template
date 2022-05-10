@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2022-05-10 14:51:43
+ * @LastEditTime: 2022-05-10 15:54:22
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -27,8 +27,8 @@ const routes = [
       keepAlive: false
     },
     // redirect: '/',
-    // component: () => import("../views/Login/LoginChain.vue"),
-    component: () => import("../views/Login/Login.vue"),
+    component: () => import("../views/Login/LoginChain.vue"),
+    // component: () => import("../views/Login/Login.vue"),
   },
   {
     path: "/",

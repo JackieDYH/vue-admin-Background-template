@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-09 17:16:51
- * @LastEditTime: 2022-05-09 17:50:57
+ * @LastEditTime: 2022-05-10 16:39:46
  * @LastEditors: Jackie
  * @Description: 链的方式登录
  * @FilePath: /vue-admin-Background-template/src/views/Login/LoginChain.vue
@@ -11,24 +11,58 @@
   <div class="Login">
     <div class="container">
       <h1 class="title">MaaS链上资源管理平台</h1>
-      <a-button type="primary" class="buns" @click="goPath">
+      <a-button type="primary" class="buns" @click="getWeb">
         Meta Mask登录
       </a-button>
     </div>
     <FooterCopyright />
+    <Loading v-show="showLoading" />
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import Loading from "@/components/Loading.vue";
 import FooterCopyright from "@/components/FooterCopyright";
 export default {
   name: "Login",
-  components: { FooterCopyright },
+  components: { Loading, FooterCopyright },
   data() {
-    return {};
+    return {
+      showLoading: false,
+    };
+  },
+  computed: {
+    ...mapGetters(["userInfo", "isLogin"]),
   },
   mounted() {},
   methods: {
+    ...mapActions(["userInfoSync", "setisLoginSync"]),
+    // 连接
+    async getWeb() {
+      try {
+        this.showLoading = true;
+        let adderss = await this.$chain.getAddress();
+        console.log(adderss);
+        if (adderss) {
+          this.userInfoSync({ adderss });
+          this.setisLoginSync(true);
+          this.$message.success("连接成功");
+          this.goPath();
+        }
+      } catch (error) {
+        const provider = window.ethereum;
+        if (typeof provider == "undefined") {
+          console.log("Please install MetaMask");
+          this.$message.warning("请安装MetaMask!!!");
+        } else {
+          this.$message.warning("连接失败！");
+        }
+        console.log(error);
+      } finally {
+        this.showLoading = false;
+      }
+    },
     goPath() {
       this.$router.push("/home");
     },

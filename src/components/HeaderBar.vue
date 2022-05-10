@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:41:56
- * @LastEditTime: 2022-05-09 18:30:55
+ * @LastEditTime: 2022-05-10 16:34:25
  * @LastEditors: Jackie
  * @Description: HeaderBar
  * @FilePath: /vue-admin-Background-template/src/components/HeaderBar.vue
@@ -24,7 +24,7 @@
       <!-- :visible="visible" 菜单是否显示  :trigger="['click']"-->
       <a-dropdown>
         <a class="ant-dropdown-link" @click="(e) => e.preventDefault()">
-          admin <a-icon type="down" />
+          账号：{{ userInfo.adderss }} <a-icon type="down" />
         </a>
         <a-menu slot="overlay">
           <!-- <a-menu-item key="1">
@@ -53,6 +53,9 @@ export default {
     return {
       visible: false,
     };
+  },
+  computed: {
+    ...mapGetters(["userInfo", "isLogin"]),
   },
   methods: {
     ...mapActions(["userInfoSync", "setisLoginSync"]),
