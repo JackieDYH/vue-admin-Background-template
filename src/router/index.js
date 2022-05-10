@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2022-05-09 18:24:12
+ * @LastEditTime: 2022-05-10 14:51:43
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -137,7 +137,6 @@ router.beforeEach((to, from, next) => {
   // }
   if (to.matched.some(record => record.meta?.requireAuth)) {
     const isLogin = store.state.isLogin;// || localStorage.getItem("token");
-    console.log(isLogin);
     if (isLogin) {
       next();
     } else {

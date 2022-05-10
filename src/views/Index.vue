@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:31:02
- * @LastEditTime: 2022-05-09 17:31:20
+ * @LastEditTime: 2022-05-10 15:08:19
  * @LastEditors: Jackie
  * @Description: file content
  * @FilePath: /vue-admin-Background-template/src/views/Index.vue
@@ -12,7 +12,7 @@
     <HeaderBar />
     <a-layout>
       <SideBar />
-      <a-layout class="wrap">
+      <a-layout class="wrap" ref="wrapScroll">
         <a-layout-content class="box">
           <router-view />
           <FooterCopyright />
@@ -36,6 +36,16 @@ export default {
       collapsed: false,
     };
   },
+  watch: {
+    $route(to, from) {
+      this.$nextTick(() => {
+        // 滚动条
+        document.querySelector(".wrap").scrollTop = 0;
+        //   this.$refs.wrapScroll.scrollTop = scrollTo(0, 0);
+      });
+    },
+  },
+  mounted() {},
 };
 </script>
 
@@ -44,6 +54,7 @@ export default {
   height: 100%;
   .wrap {
     margin: 24px;
+    transition: all 2s;
     .box {
       min-height: 100%;
       background-color: #fff;
