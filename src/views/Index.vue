@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-07 14:31:02
- * @LastEditTime: 2022-05-10 18:06:30
+ * @LastEditTime: 2022-05-12 15:38:21
  * @LastEditors: Jackie
  * @Description: file content
  * @FilePath: /vue-admin-Background-template/src/views/Index.vue
@@ -53,18 +53,16 @@ export default {
 #layout {
   height: 100%;
   .wrap {
-    margin: 24px;
+    margin-left: 15px;
     transition: all 0.5s;
-    .box {
-      min-height: 100%;
-      background-color: #fff;
-    }
-    .content {
+    background-color: #fff;
+    padding: 20px;
+    /* .content {
       background-color: #fff;
       padding: 24px;
       margin: 0;
-      min-height: 400px;
-    }
+      min-height: 100%;
+    } */
   }
   .footer {
     background: #fff;
