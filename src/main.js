@@ -1,7 +1,7 @@
 /*
  * @Author: Jackie
  * @Date: 2021-10-25 14:01:56
- * @LastEditTime: 2022-05-10 15:38:35
+ * @LastEditTime: 2022-05-12 15:57:22
  * @LastEditors: Jackie
  * @Description: file content
  * @version: 
@@ -14,6 +14,7 @@ import * as filter from '@/filter/filter'; // 过滤器
 import * as utils from '@/utils/util'; // 公共方法
 import getRequest from '@/common/api';
 import axios from 'axios';
+import useEagerConnect2 from "@/common/hooks/useEagerConnect";
 import useEagerConnect from "@/common/hooks/SendMaaS";
 
 // UI库
@@ -38,6 +39,7 @@ Vue.use(animate);
 
 // 公共方法
 Vue.prototype.$chain = useEagerConnect;
+Vue.prototype.$chain2 = useEagerConnect2();
 Vue.prototype.$utils = utils;
 Vue.prototype.$axios = getRequest;
 Vue.prototype.$http = axios;

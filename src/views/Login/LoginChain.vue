@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-09 17:16:51
- * @LastEditTime: 2022-05-10 18:06:18
+ * @LastEditTime: 2022-05-12 18:07:06
  * @LastEditors: Jackie
  * @Description: 链的方式登录
  * @FilePath: /vue-admin-Background-template/src/views/Login/LoginChain.vue
@@ -35,9 +35,22 @@ export default {
   computed: {
     ...mapGetters(["userInfo", "isLogin"]),
   },
-  mounted() {},
+  mounted() {
+    this.init();
+  },
   methods: {
     ...mapActions(["userInfoSync", "setisLoginSync"]),
+    // =====================测试==========================
+    async init() {
+      console.log(this.$chain2);
+      // let res = await this.$chain.getboxNFTIds();
+      let res0 = await this.$chain2.contracts.MaaS_TEST.getboxNFTIds();
+      let res = await this.$chain2.auth.getAddress();
+      let res2 = await this.$chain.getAddress();
+      console.log(res0);
+      console.log(res, res2);
+    },
+    // ===============================================
     // 连接
     async getWeb() {
       try {
