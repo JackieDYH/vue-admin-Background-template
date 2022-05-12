@@ -1,7 +1,7 @@
 <!--
  * @Author: Jackie
  * @Date: 2022-05-09 17:16:51
- * @LastEditTime: 2022-05-12 18:07:06
+ * @LastEditTime: 2022-05-12 20:02:28
  * @LastEditors: Jackie
  * @Description: 链的方式登录
  * @FilePath: /vue-admin-Background-template/src/views/Login/LoginChain.vue
@@ -36,7 +36,7 @@ export default {
     ...mapGetters(["userInfo", "isLogin"]),
   },
   mounted() {
-    this.init();
+    // this.init();
   },
   methods: {
     ...mapActions(["userInfoSync", "setisLoginSync"]),
