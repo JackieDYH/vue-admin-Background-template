@@ -1,14 +1,14 @@
 /*
  * @Author: Jackie
  * @Date: 2022-05-12 15:41:45
- * @LastEditTime: 2022-05-12 18:15:41
+ * @LastEditTime: 2022-05-13 11:28:55
  * @LastEditors: Jackie
  * @Description: file content
  * @FilePath: /vue-admin-Background-template/src/common/hooks/contract.js
  * @version: 
  */
 import { ethers, utils } from "ethers";
-
+// import Web3 from "web3";
 class contract {
     #_wallet;
     #_contracts = {};
@@ -26,6 +26,8 @@ class contract {
 
     createContract(contractConfig) {
         let contracts = {};
+        // const provider = window.ethereum;
+        // const web3 = new Web3(provider);
         Object.entries(contractConfig).forEach(([name, contractInfo]) => {
             contracts[name] = new ethers.Contract(
                 contractInfo.address,
