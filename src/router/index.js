@@ -28,6 +28,7 @@ const routes = [
     },
     // redirect: '/',
     component: () => import("../views/Login/LoginChain.vue"),
+	// component: () => import("../views/Login/LoginPhone.vue"),
     // component: () => import("../views/Login/Login.vue"),
   },
   {
